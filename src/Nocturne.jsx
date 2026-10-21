@@ -67,7 +67,7 @@ export default function Nocturne() {
   <div><p className="mono">Correspondence</p><a className="ul" href="mailto:somehow.wemakeitwork@gmail.com">somehow.wemakeitwork@gmail.com</a>@somehowworks</div>
   <div><p className="mono">Observatory time</p><b id="utc" className="big">00:00:00</b><span className="mono" id="utcs"></span></div>
  </div>
- <div className="wm o" id="wm" aria-hidden="true">SOMEHOW<span style={{color:'#ff4c29'}}>.</span></div>
+ <div className="wm o" id="wm" aria-hidden="true">SOMEHOW<span style={{color:'#ff4c29',WebkitTextStroke:0}}>.</span></div>
  <div className="mono row legal"><span>© Nocturne, a fictional institute. No names are recorded.</span><a href="#top">↑ Return to the surface</a></div>
 </footer>
  </section>
