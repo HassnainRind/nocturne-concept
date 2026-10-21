@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+﻿import { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
@@ -450,7 +450,33 @@ vK=aK;vA=(.3+.7*clamp(1.-(-mv.z-4.)/7.,0.,1.))*(aT>.5&&aT<1.5?.55:1.);}`,
       }
     };
 
-    if (mb) mb.onclick = () => setMenu(!menuOpen);
+    if (mb) {
+      mb.onclick = () => {
+        setMenu(!menuOpen);
+        if (!RM && ft && fd) {
+          mb.style.filter = 'url(#tv)';
+          gsap.fromTo(
+            fd,
+            { attr: { scale: 0 } },
+            {
+              attr: { scale: 40 },
+              duration: 0.07,
+              repeat: 5,
+              yoyo: true,
+              onUpdate: () =>
+                ft.setAttribute(
+                  'baseFrequency',
+                  (Math.random() * 0.02).toFixed(3) + ' ' + (0.2 + Math.random() * 0.5).toFixed(2)
+                ),
+              onComplete: () => {
+                mb.style.filter = 'none';
+                fd.setAttribute('scale', '0');
+              },
+            }
+          );
+        }
+      };
+    }
     menu?.addEventListener(
       'click',
       (e) => {
@@ -625,7 +651,7 @@ vK=aK;vA=(.3+.7*clamp(1.-(-mv.z-4.)/7.,0.,1.))*(aT>.5&&aT<1.5?.55:1.);}`,
         <div className="dot" />
       </div>
       <div id="pre" aria-hidden="true">
-        <div className="mono">Calibrating instruments. Keep the lights low</div>
+        <div className="mono"></div>
         <div id="pn">000</div>
       </div>
       <nav id="nav">
@@ -662,9 +688,9 @@ vK=aK;vA=(.3+.7*clamp(1.-(-mv.z-4.)/7.,0.,1.))*(aT>.5&&aT<1.5?.55:1.);}`,
         <a href="#join">Join</a>
       </div>
       <main id="top">
-        <header className="hero">
+                <header className="hero">
           <div className="ret" aria-hidden="true"><i /><b /></div>
-          <div className="row mono">
+          <div className="row mono" style={{ display: 'none' }}>
             <span className="rec" id="st">Window open</span>
             <span>Hours 00:00 → 06:00</span>
           </div>
@@ -672,12 +698,11 @@ vK=aK;vA=(.3+.7*clamp(1.-(-mv.z-4.)/7.,0.,1.))*(aT>.5&&aT<1.5?.55:1.);}`,
             <h1 id="title">NOCTURNE</h1>
             <div className="row" style={{ alignItems: 'flex-end', marginTop: '3vh' }}>
               <p className="q">What happens to humanity when the world goes quiet?</p>
-              <span className="mono">Descend ↓</span>
             </div>
           </div>
         </header>
         <section className="man pad">
-          <p className="mono rv">[ 01 / Premise ]</p>
+          <p className="mono rv">01 / Premise</p>
           <p id="man">
             Between midnight and sunrise the masks we wear for daylight go slack. People confess to strangers, to screens, to ceilings. We do not intervene. We only listen, with sensors, with patience, with the lights off.
           </p>
@@ -685,7 +710,7 @@ vK=aK;vA=(.3+.7*clamp(1.-(-mv.z-4.)/7.,0.,1.))*(aT>.5&&aT<1.5?.55:1.);}`,
         </section>
         <section className="tl" id="tl">
           <div className="row mono">
-            <span>[ 02 / The Watch ]</span>
+            <span>02 / The Watch</span>
             <span id="pn2">Phase 01 / 05</span>
           </div>
           <div className="wv">
@@ -707,7 +732,7 @@ vK=aK;vA=(.3+.7*clamp(1.-(-mv.z-4.)/7.,0.,1.))*(aT>.5&&aT<1.5?.55:1.);}`,
           </div>
         </section>
         <section className="pad" id="ins">
-          <p className="mono rv">[ 03 / Instruments ]</p>
+          <p className="mono rv">03 / Instruments</p>
           <h2>
             <span className="sp">Four ways</span> <span className="sp o">of listening</span>
           </h2>
@@ -760,7 +785,7 @@ vK=aK;vA=(.3+.7*clamp(1.-(-mv.z-4.)/7.,0.,1.))*(aT>.5&&aT<1.5?.55:1.);}`,
           </div>
         </section>
         <section className="pad" id="fnd">
-          <p className="mono rv">[ 04 / Findings ]</p>
+          <p className="mono rv">04 / Findings</p>
           <div className="stats">
             <div><b data-n="14200">0</b><span className="mono">Nights recorded</span></div>
             <div><b data-n="212">0</b><span className="mono">Cities observed</span></div>
@@ -773,7 +798,7 @@ vK=aK;vA=(.3+.7*clamp(1.-(-mv.z-4.)/7.,0.,1.))*(aT>.5&&aT<1.5?.55:1.);}`,
           </p>
         </section>
         <section className="pad" id="idx">
-          <p className="mono rv">[ 05 / Index of Observations ]</p>
+          <p className="mono rv">05 / Index of Observations</p>
           <h2>
             <span className="sp">Subjects</span> <span className="sp o">of the quiet</span>
           </h2>
@@ -787,7 +812,7 @@ vK=aK;vA=(.3+.7*clamp(1.-(-mv.z-4.)/7.,0.,1.))*(aT>.5&&aT<1.5?.55:1.);}`,
           </ul>
         </section>
         <section className="end" id="join">
-          <p className="mono rv" style={{ padding: '0 4vw 4vh' }}>[ 06 / Join the watch ]</p>
+          <p className="mono rv" style={{ padding: '0 4vw 4vh' }}>06 / Join the watch</p>
           <div className="mq o" id="mq" aria-hidden="true">
             <span>STAY AWAKE / STAY AWAKE / </span>
             <span>STAY AWAKE / STAY AWAKE / </span>
@@ -815,8 +840,8 @@ vK=aK;vA=(.3+.7*clamp(1.-(-mv.z-4.)/7.,0.,1.))*(aT>.5&&aT<1.5?.55:1.);}`,
               </div>
               <div>
                 <p className="mono">Correspondence</p>
-                <a className="ul" href="mailto:watch@nocturne.example">watch@nocturne.example</a>
-                @nocturne.observatory
+                <a className="ul" href="mailto:somehow.wemakeitwork@gmail.com">somehow.wemakeitwork@gmail.com</a>
+                @somehowworks
               </div>
               <div>
                 <p className="mono">Observatory time</p>
@@ -824,7 +849,7 @@ vK=aK;vA=(.3+.7*clamp(1.-(-mv.z-4.)/7.,0.,1.))*(aT>.5&&aT<1.5?.55:1.);}`,
                 <span className="mono" id="utcs" />
               </div>
             </div>
-            <div className="wm o" id="wm" aria-hidden="true">NOCTURNE</div>
+            <div className="wm o" id="wm" aria-hidden="true">SOMEHOW<span style={{ color: '#ff4c29' }}>.</span></div>
             <div className="mono row legal">
               <span>© Nocturne, a fictional institute. No names are recorded.</span>
               <a href="#top">↑ Return to the surface</a>
