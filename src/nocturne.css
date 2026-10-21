@@ -159,3 +159,8 @@ html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}.foot
 .tl .row{padding-top:4.5rem}.wv{top:11%;height:54%}.hrs{top:67%}
 @media(max-width:700px){.wv{top:12%;height:52%}.hrs{top:66%}}
 .tl .row{padding-top:calc(1.4rem + env(safe-area-inset-top,0px))}.hs-t,.mn-lb,.rl-t{top:calc(1.4rem + env(safe-area-inset-top,0px))}.wv{top:13%;height:42%}
+
+.lenis.lenis-stopped{overflow:hidden}.fgrid a{overflow-wrap:anywhere}
+@media(max-width:700px){.wv{top:9%;height:38%}.hrs{top:50%}#clock{top:56%;bottom:auto;left:4vw;font-size:min(29vw,13svh)}
+.phase{padding:1rem;bottom:calc(2.5svh + env(safe-area-inset-bottom,0px))}.phase h3{font-size:1.9rem;margin:.4rem 0}.phase p{font-size:.9rem;line-height:1.4}.fgrid>div:nth-child(3){grid-column:1/-1}}
+@media(hover:none){.rows li:hover{color:inherit}.rows li:hover:before{transform:scaleY(0)}.rows li:hover .mono{color:var(--mut)}.rows li:hover b{transform:none}.rows li:active{color:var(--bg)}.rows li:active:before{transform:scaleY(1)}.rows li:active .mono{color:var(--bg)}}
